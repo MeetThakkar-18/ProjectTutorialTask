@@ -1,0 +1,16 @@
+{
+  "name": "projecttutorialtask",
+  "version": "1.0.0",
+  "description": "Design an app to manage Tutorial(first-task-atcompany)",
+  "main": "index.js",
+  "dependencies": {
+    "nodemon": "^2.0.15",
+    "swagger-ui": "^4.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "meet",
+  "license": "ISC"
+}
