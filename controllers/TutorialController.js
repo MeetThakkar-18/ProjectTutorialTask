@@ -1,45 +1,57 @@
-const Post = require('../models/post')
+const express = require('express');
+const TutorialRoutes = require('../routes/TutorialRoutes')
+const Tutorial = require('../models/TutorialSchema')
 
-/*
-exports.getPosts = (req,res) => {
-    res.json({
-        posts:[
-            {
-                title : "First post"
-            }, 
-            {
-                title: 'Second post'
-            }]
-    });
-};
-*/
 
-exports.getPosts = (req,res) => {
-    const posts = Post.find()
-    .select("_id title body")
-    .then((posts) => {
-        res.json({posts})
+exports.getTutorial = (req,res) => {
+    const tutorial = Tutorial.find()
+    //.select("title description published")
+    .then((tutorial) => {
+        res.json({tutorial})
     }).catch(err => console.log(err))
 };
 
-exports.createPost = (req,res) => {
-    const post = new Post(req.body);
-    
-    post.save().then(result => {
-        res.json({
-            post:result
+exports.postTutorial = (req,res) => {
+    const tutorial = new Tutorial(req.body);
+    tutorial.save().then((result) => {
+        res.status(200).json({
+            tutorial:result
         });
-    });
+    }).catch(err => console.log(err))
   };
 
-  /* console.log("Creating Post :",req.body); 
-    post.save((err,result) => {
-        if(err) {
-            return res.status(400).json({
-                error:err
-            })
-        }
+exports.putTutorial=async(req,res)=>{
+
+    let id=req.params.id;
+    const tutorial =await Tutorial.findByIdAndUpdate(id,{
+        title:req.body.title,
+        description:req.body.description,
+        published:req.body.published
+    },{new:true}).then((result)=>{
         res.status(200).json({
-            post : result
-        })
-    })*/
+            result:result
+        });
+    }).catch(err => console.log(err))
+};
+
+exports.deleteTutorial=async(req,res)=>{
+
+    let id=req.params.id;
+    const tutorial =await Tutorial.findByIdAndRemove(id).then((result)=>{
+        res.status(200).json({
+            result:result
+        });
+    }).catch(err => console.log(err))
+    if(!tutorial) return res.status(401).send("tutorial with given id not found");
+}
+
+
+exports.findTutorial=async(req, res)=>{
+
+        let id=req.params.id;
+        const tutorial=await Tutorial.findById(id).then(result => {
+            res.json({
+                tutorial:result
+            });
+        }).catch(err => console.log(err))   
+}

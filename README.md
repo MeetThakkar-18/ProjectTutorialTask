@@ -1,5 +1,5 @@
 This was the task for implementing basic knowledge of node.js which we learn from node.js course ,
-we have to design an app to manage Tutorials where we have to implement basic crud api's all api should maintained with help of swagger ui.
+we have design an app to manage Tutorials where we have implemented basic crud api's and all api's are maintained with help of swagger-ui.
 
 
 Tech: NodeJS, MongoDB

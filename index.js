@@ -3,7 +3,8 @@ const app = express();
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-//const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
+const swaggerUI = require('swagger-ui');
 const expressValidator = require('express-validator');
 dotenv.config()
 
@@ -15,29 +16,18 @@ mongoose.connection.on('error',err => {
 });
 
 const myOwnMiddleware = (req,res,next) => {
-    console.log("middleware applied");
+    console.log("middleware applied"); 
     next();
 };
 
-const postRoutes = require('./routes/post');
+const tutorialpostRoutes = require('./routes/TutorialRoutes');
+app.use("/",tutorialpostRoutes);
 //middleware 
 app.use(morgan("dev"));     
 app.use(expressValidator());
-app.use("/",postRoutes);
-app.use(myOwnMiddleware);     
+app.use(myOwnMiddleware);
+
 const port = process.env.PORT || 3200;
 app.listen(port,()=> {
-    console.log(`A node js api listening : ${port}`);
+    console.log(`The server is running on port : ${port}`);
 });
-
-
-             
-//app.use(bodyParser.json())
-/*
-app.get("/", (req,res) => {
-    res.send("Hello world from node");
-});
-
-*/
-//const {getPosts} = require("./routes/post");
-//app.get("/", getPosts);

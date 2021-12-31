@@ -1,17 +1,14 @@
 const express = require('express');
-const {getPosts,createPost} = require('../controllers/post');
+const TutorialController = require('../controllers/TutorialController');
 const router = express.Router();
 const validator = require('../validators/validate')
 
-router.post("/post",validator.createPostValidator, createPost);
+router.get('/',TutorialController.getTutorial);
+router.get('/:id',TutorialController.findTutorial);
+router.put('/put/:id',TutorialController.putTutorial);
+router.post('/',TutorialController.postTutorial);
+router.delete('/delete/:id',TutorialController.deleteTutorial);
+
+//router.get("/tutorials",validator.createTutorialValidator,createTutorials);
 
 module.exports = router;
-
-
-/*
-exports.getPosts = (req ,res) => {
-    res.send("Hello world from meet");
-};
-*/
-
-//router.get("/",getPosts);

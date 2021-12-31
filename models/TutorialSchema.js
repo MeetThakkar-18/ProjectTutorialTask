@@ -17,7 +17,7 @@ const TutorialSchema = new mongoose.Schema({
         required: true
     }
        
-        ,timestamps: true 
+        ,timestamps: {}
 });
 
 module.exports = mongoose.model("TutorialPost",TutorialSchema);
