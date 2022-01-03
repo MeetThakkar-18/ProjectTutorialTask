@@ -3,9 +3,12 @@ const app = express();
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const tutorialpostRoutes = require('./routes/TutorialRoutes');
 const bodyParser = require('body-parser');
-const swaggerUI = require('swagger-ui');
+const swaggerUI = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 const expressValidator = require('express-validator');
+
 dotenv.config()
 
 mongoose.connect(process.env.MONGO_URI)
@@ -19,15 +22,18 @@ const myOwnMiddleware = (req,res,next) => {
     console.log("middleware applied"); 
     next();
 };
-
-const tutorialpostRoutes = require('./routes/TutorialRoutes');
-app.use("/",tutorialpostRoutes);
+app.use(bodyParser.urlencoded({extended:true}));
 //middleware 
-app.use(morgan("dev"));     
-app.use(expressValidator());
-app.use(myOwnMiddleware);
+app.use('/swagger-api',swaggerUI.serve,swaggerUI.setup(swaggerDocument));
 
 const port = process.env.PORT || 3200;
 app.listen(port,()=> {
     console.log(`The server is running on port : ${port}`);
 });
+
+
+app.use(morgan("dev"));     
+app.use(expressValidator());
+app.use(myOwnMiddleware);
+app.use(express.json());
+app.use("/tutorials",tutorialpostRoutes);

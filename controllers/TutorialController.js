@@ -42,7 +42,6 @@ exports.deleteTutorial=async(req,res)=>{
             result:result
         });
     }).catch(err => console.log(err))
-    if(!tutorial) return res.status(401).send("tutorial with given id not found");
 }
 
 

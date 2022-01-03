@@ -29,6 +29,16 @@
         "tags": [
           "Tutorials"
         ],
+        "requestBody":{
+          "required":true,
+          "content":{
+            "application/json":{
+              "schema":{
+                "$ref":"#/definitions/Tutorials"
+              }
+            }
+          }
+        },
         "parameters": [
           {
             "name": "body",
@@ -69,65 +79,6 @@
           }
         }
     },
-    "/tutorials/put/{id}": {
-      "put": {
-        "summary": "Update Tutorial with give ID",
-        "tags": [
-          "Tutorials"
-        ],
-        "parameters": [
-          {
-            "name": "Tutorials",
-            "in": "body",
-            "description": "Update the tutorials with help of ID",
-            "schema": {
-              "$ref": "#/definitions/updateTutorials"
-            }
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "ID of the particular tutorial ",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Tutorial is updated",
-            "schema": {
-              "$ref": "#/definitions/Tutorials"
-            }
-          }
-        }
-      }
-    },
-
-    "/tutorials/{id}": {
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "ID of the particular tutorial ",
-          "type": "string"
-        }
-      ],
-      "get": {
-        "summary": "Find the tutorial by ID",
-        "tags": [
-          "Tutorials"
-        ],
-        "responses": {
-          "200": {
-            "description": "Find by id is done",
-            "schema": {
-              "$ref": "#/definitions/Tutorials"
-            }
-          }
-        }
-      }  
-    },
     "/tutorials/delete/{id}": {
       "parameters": [
         {
@@ -135,7 +86,7 @@
           "in": "path",
           "required": true,
           "description": "ID of the particular tutorial ",
-          "type": "string"
+          "type": "integer"
         }
       ],
       "delete": {
@@ -151,10 +102,33 @@
             }
           }
         }
-      }  
+      },
+      "put": {
+        "summary": "Update Tutorial with give ID",
+        "tags": [
+          "Tutorials"
+        ],
+        "parameters": [
+          {
+            "name": "Tutorials",
+            "in": "body",
+            "description": "Update the tutorials with help of ID",
+            "schema": {
+              "$ref": "#/definitions/updateTutorials"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tutorial is updated",
+            "schema": {
+              "$ref": "#/definitions/Tutorials"
+            }
+          }
+        }
+      }
     }
   },
-
   "definitions": {
     "Tutorials": {
       "required": [
@@ -193,6 +167,5 @@
         }
        }
       }
-      
     }
   }
