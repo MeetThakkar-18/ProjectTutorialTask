@@ -69,6 +69,22 @@
           }
         }
     },
+    "/tutorials/sorting/sortdesc": {
+      "get": {
+          "tags": [
+            "Tutorials"
+          ],
+          "summary": "Sort all tutorials from the system in desc",
+          "responses": {
+            "200": {
+              "description": "Here you get all the tutorials",
+              "schema": {
+                "$ref": "#/definitions/Tutorials"
+              }
+            }
+          }
+        }
+    }, 
     "/tutorials/put/{id}": {
       "put": {
         "summary": "Update Tutorial with give ID",
@@ -103,24 +119,26 @@
       }
     },
 
-    "/tutorials/{id}": {
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "ID of the particular tutorial ",
-          "type": "string"
-        }
-      ],
+    "/tutorials/search/{title}": {
+      
       "get": {
-        "summary": "Find the tutorial by ID",
+        "summary": "Find the tutorial by Title",
         "tags": [
           "Tutorials"
         ],
+        
+        "parameters": [
+          {
+            "name": "title",
+            "in": "path",
+            "required": true,
+            "description": "Title of the particular tutorial ",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Find by id is done",
+            "description": "Search by title is done",
             "schema": {
               "$ref": "#/definitions/Tutorials"
             }

@@ -46,11 +46,19 @@ exports.deleteTutorial=async(req,res)=>{
 
 
 exports.findTutorial=async(req, res)=>{
-
-        let id=req.params.id;
-        const tutorial=await Tutorial.findById(id).then(result => {
+    //console.log(req.params.title);
+      let title=req.params.title;
+        const tutorial=await Tutorial.find({title:title}).then(result => {
             res.json({
                 tutorial:result
             });
         }).catch(err => console.log(err))   
 }
+
+exports.getsortTutorial = (req,res) => {
+    var mysort = { updatedAt: -1 };
+    const tutorial = Tutorial.find().sort(mysort)
+    .then((tutorial) => {
+        res.json({tutorial})
+    }).catch(err => console.log(err))
+};
