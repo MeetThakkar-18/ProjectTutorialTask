@@ -134,7 +134,25 @@
             "required": true,
             "description": "Title of the particular tutorial ",
             "type": "string"
-          }
+          },
+          {
+            "name":"sorting",
+            "in":"query",
+            "description":"sort by [asc,desc]",
+            "type":"string",
+            "enum":[
+              "asc","desc"
+            ]
+        },
+        {
+            "name":"at",
+            "in":"query",
+            "description":"sort by [field name]",
+            "type":"string",
+            "enum":[
+              "createdAt","updatedAt"
+            ]
+            }
         ],
         "responses": {
           "200": {

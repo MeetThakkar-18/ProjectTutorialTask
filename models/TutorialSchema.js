@@ -3,19 +3,22 @@ const mongoose = require('mongoose')
 const TutorialSchema = new mongoose.Schema({
     title : {
         type: String,
-    //    required:true,
+        minlength:3,
+        maxlength:100,
+        required: true
     },
 
     description : {
         type: String,
-     //   required:true,
+        minlength:1,
+        maxlength:5000,
+        required: true
     },
 
     published : {
         type: Boolean,
-    //   required:true
-    }
-       
+        default:false
+    }       
         
 },{timestamps: true});
 
