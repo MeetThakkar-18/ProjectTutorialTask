@@ -8,7 +8,7 @@ exports.getTutorial = (req,res) => {
     const tutorial = Tutorial.find()
     .then((tutorial) => {
         res.json({tutorial})
-    })         //.select("title description published")    
+    })         
     } catch(error){
          res.status(302).json(error.message);
     } 
