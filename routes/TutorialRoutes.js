@@ -4,7 +4,6 @@ const router = express.Router();
 //const validator = require('../validators/validate')
 
 router.get('/search/:title',TutorialController.findTutorial);
-
 router.get('/',TutorialController.getTutorial);
 router.get('/sorting/sortdesc',TutorialController.getsortTutorial);
 router.put('/put/:id',TutorialController.putTutorial);
