@@ -12,8 +12,7 @@ const tutorialpostRoutes = require('./routes/TutorialRoutes');
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('DB Connected'));
+mongoose.connect(process.env.MONGO_URI).then(() => console.log('DB Connected'));
 
 mongoose.connection.on('error', (err) => {
   console.log(`DB Connection error : ${err.message}`);
