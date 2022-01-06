@@ -11,6 +11,7 @@ const swaggerDocument = require('./swagger.json');
 const tutorialpostRoutes = require('./routes/TutorialRoutes');
 
 dotenv.config();
+console.log('jdh');
 
 mongoose.connect(process.env.MONGO_URI).then(() => console.log('DB Connected'));
 

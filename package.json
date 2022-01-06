@@ -29,6 +29,7 @@
   },
   "scripts": {
     "dev": "nodemon index.js",
+    "cz" : "cz",
     "lint:fix": "eslint '*.js' --fix"
   },
   "author": "meet",
