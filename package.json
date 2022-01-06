@@ -14,7 +14,8 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
     "swagger-ui": "^4.1.3",
-    "swagger-ui-express": "^4.3.0"
+    "swagger-ui-express": "^4.3.0",
+    "winston": "^3.3.3"
   },
   "husky": {
     "hooks": {
@@ -29,7 +30,7 @@
   },
   "scripts": {
     "dev": "nodemon index.js",
-    "cz" : "cz",
+    "cz": "cz",
     "lint:fix": "eslint '*.js' --fix"
   },
   "author": "meet",
