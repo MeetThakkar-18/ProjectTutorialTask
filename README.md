@@ -1,3 +1,6 @@
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
+
 This was the task for implementing basic knowledge of node.js which we learn from node.js course ,
 we have design an app to manage Tutorials where we have implemented basic crud api's and all api's are maintained with help of swagger-ui.
 

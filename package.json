@@ -34,6 +34,7 @@
   "author": "meet",
   "license": "ISC",
   "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.6.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -42,5 +43,10 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.1.5",
     "prettier": "2.5.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
