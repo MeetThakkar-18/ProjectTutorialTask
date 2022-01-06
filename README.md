@@ -1,9 +1,21 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 
-This was the task for implementing basic knowledge of node.js which we learn from node.js course ,
-we have design an app to manage Tutorials where we have implemented basic crud api's and all api's are maintained with help of swagger-ui.
+This was the task for implementing basic knowledge of node.js which i have learn from node.js course ,
+I have design an app to manage Tutorials where I have implemented basic crud and sorting ,searching api's  and all api's are maintained with help of swagger-ui.
 
+The fields are validated using Joi validation and created a pre-commit git hook with use of husky that will check proper code formatting(indentation,semi-colons,quotes) with help of Eslint and prettier.
+
+Followed a proper commit style i.e-conventional commits with use of commitizen
+
+To Run the project :
+- npm install
+- npm run dev
+And the project will start running (connected to port 3200)
+Open the browser and type the link :- localhost:3200/swagger-api
+
+
+Description about project :-
 
 Tech: NodeJS, MongoDB
 Description: Design an app to manage Tutorials
@@ -24,4 +36,4 @@ APIs:
 - Delete a Tutorial by ID
 - Get all Tutorials
 -- Able to search by Title
--- Able to sort by crated/updated date (Default updated DESC)
+-- Able to sort by created/updated date (Default updated DESC)
